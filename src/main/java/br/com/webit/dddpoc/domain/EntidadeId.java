@@ -1,7 +1,5 @@
 package br.com.webit.dddpoc.domain;
 
-import br.com.webit.dddpoc.application.adapters.EntidadeIdAdapter;
-import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -9,7 +7,6 @@ import jakarta.persistence.Embedded;
 import java.util.Objects;
 
 @Embeddable
-@JsonbTypeAdapter(EntidadeIdAdapter.class)
 public class EntidadeId implements br.com.webit.dddpoc.infra.ValueObject<EntidadeId> {
 
     @Embedded

@@ -1,12 +1,9 @@
 package br.com.webit.dddpoc.domain;
 
-import br.com.webit.dddpoc.application.adapters.ValorObjetoAdapter;
-import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import jakarta.persistence.Embeddable;
 import java.util.Objects;
 
 @Embeddable
-@JsonbTypeAdapter(ValorObjetoAdapter.class)
 public class ValorObjeto implements br.com.webit.dddpoc.infra.ValueObject<ValorObjeto> {
 
     private String dado;

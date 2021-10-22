@@ -1,7 +1,5 @@
 package br.com.webit.dddpoc.domain;
 
-import br.com.webit.dddpoc.application.adapters.AgregadorAdapter;
-import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -15,7 +13,6 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@JsonbTypeAdapter(AgregadorAdapter.class)
 public class Agregador implements br.com.webit.dddpoc.infra.Entity<Agregador, AgregadorId> {
 
     @EmbeddedId

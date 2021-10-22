@@ -1,11 +1,8 @@
 package br.com.webit.dddpoc.domain;
 
-import br.com.webit.dddpoc.application.adapters.AgregadorIdAdapter;
-import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-@JsonbTypeAdapter(AgregadorIdAdapter.class)
 public class AgregadorId implements br.com.webit.dddpoc.infra.ValueObject<AgregadorId> {
 
     private long id;
