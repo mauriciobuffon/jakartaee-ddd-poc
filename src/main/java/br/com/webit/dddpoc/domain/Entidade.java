@@ -1,13 +1,13 @@
 package br.com.webit.dddpoc.domain;
 
+import jakarta.persistence.Embedded;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.Version;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.Version;
 
 @Entity
 public class Entidade implements br.com.webit.dddpoc.infra.Entity<Entidade, EntidadeId> {

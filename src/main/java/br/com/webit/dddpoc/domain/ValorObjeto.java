@@ -1,9 +1,9 @@
 package br.com.webit.dddpoc.domain;
 
 import br.com.webit.dddpoc.application.adapters.ValorObjetoAdapter;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
+import jakarta.persistence.Embeddable;
 import java.util.Objects;
-import javax.json.bind.annotation.JsonbTypeAdapter;
-import javax.persistence.Embeddable;
 
 @Embeddable
 @JsonbTypeAdapter(ValorObjetoAdapter.class)

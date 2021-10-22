@@ -1,12 +1,12 @@
 package br.com.webit.dddpoc.domain;
 
 import br.com.webit.dddpoc.application.adapters.EntidadeIdAdapter;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import java.util.Objects;
-import javax.json.bind.annotation.JsonbTypeAdapter;
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 
 @Embeddable
 @JsonbTypeAdapter(EntidadeIdAdapter.class)

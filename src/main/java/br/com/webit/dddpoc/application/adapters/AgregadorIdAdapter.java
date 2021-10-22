@@ -1,9 +1,9 @@
 package br.com.webit.dddpoc.application.adapters;
 
 import br.com.webit.dddpoc.domain.AgregadorId;
-import javax.json.Json;
-import javax.json.JsonNumber;
-import javax.json.bind.adapter.JsonbAdapter;
+import jakarta.json.Json;
+import jakarta.json.JsonNumber;
+import jakarta.json.bind.adapter.JsonbAdapter;
 
 public class AgregadorIdAdapter implements JsonbAdapter<AgregadorId, JsonNumber> {
 

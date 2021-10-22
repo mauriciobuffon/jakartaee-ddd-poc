@@ -1,8 +1,8 @@
 package br.com.webit.dddpoc.domain;
 
 import br.com.webit.dddpoc.application.adapters.AgregadorIdAdapter;
-import javax.json.bind.annotation.JsonbTypeAdapter;
-import javax.persistence.Embeddable;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 @JsonbTypeAdapter(AgregadorIdAdapter.class)

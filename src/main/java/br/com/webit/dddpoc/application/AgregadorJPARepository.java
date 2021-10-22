@@ -3,13 +3,13 @@ package br.com.webit.dddpoc.application;
 import br.com.webit.dddpoc.domain.Agregador;
 import br.com.webit.dddpoc.domain.AgregadorId;
 import br.com.webit.dddpoc.domain.AgregadorRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Predicate;
-import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @ApplicationScoped
 public class AgregadorJPARepository implements AgregadorRepository {

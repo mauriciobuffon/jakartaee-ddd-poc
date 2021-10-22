@@ -1,9 +1,9 @@
 package br.com.webit.dddpoc.application.adapters;
 
 import br.com.webit.dddpoc.domain.ValorObjeto;
-import javax.json.Json;
-import javax.json.JsonString;
-import javax.json.bind.adapter.JsonbAdapter;
+import jakarta.json.Json;
+import jakarta.json.JsonString;
+import jakarta.json.bind.adapter.JsonbAdapter;
 
 public class ValorObjetoAdapter implements JsonbAdapter<ValorObjeto, JsonString> {
 
