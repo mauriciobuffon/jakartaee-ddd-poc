@@ -1,4 +1,4 @@
-package br.com.webit.dddpoc.infra;
+package br.dev.webit.dddpoc.infra;
 
 import java.io.Serializable;
 

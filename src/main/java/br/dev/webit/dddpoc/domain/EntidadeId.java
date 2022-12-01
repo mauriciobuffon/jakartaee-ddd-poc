@@ -1,4 +1,4 @@
-package br.com.webit.dddpoc.domain;
+package br.dev.webit.dddpoc.domain;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
@@ -7,7 +7,7 @@ import jakarta.persistence.Embedded;
 import java.util.Objects;
 
 @Embeddable
-public class EntidadeId implements br.com.webit.dddpoc.infra.ValueObject<EntidadeId> {
+public class EntidadeId implements br.dev.webit.dddpoc.infra.ValueObject<EntidadeId> {
 
     @Embedded
     @AttributeOverride(name = "id", column = @Column(name = "agregador_id"))

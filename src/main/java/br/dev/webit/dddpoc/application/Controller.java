@@ -1,9 +1,9 @@
-package br.com.webit.dddpoc.application;
+package br.dev.webit.dddpoc.application;
 
-import br.com.webit.dddpoc.domain.Agregador;
-import br.com.webit.dddpoc.domain.AgregadorId;
-import br.com.webit.dddpoc.domain.AgregadorRepository;
-import br.com.webit.dddpoc.domain.ValorObjeto;
+import br.dev.webit.dddpoc.domain.Agregador;
+import br.dev.webit.dddpoc.domain.AgregadorId;
+import br.dev.webit.dddpoc.domain.AgregadorRepository;
+import br.dev.webit.dddpoc.domain.ValorObjeto;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;

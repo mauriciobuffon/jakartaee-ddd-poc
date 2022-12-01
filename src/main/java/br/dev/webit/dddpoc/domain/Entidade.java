@@ -1,4 +1,4 @@
-package br.com.webit.dddpoc.domain;
+package br.dev.webit.dddpoc.domain;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class Entidade implements br.com.webit.dddpoc.infra.Entity<Entidade, EntidadeId> {
+public class Entidade implements br.dev.webit.dddpoc.infra.Entity<Entidade, EntidadeId> {
 
     @EmbeddedId
     private EntidadeId entidadeId;

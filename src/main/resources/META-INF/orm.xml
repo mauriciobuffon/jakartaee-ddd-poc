@@ -5,7 +5,7 @@
         <xml-mapping-metadata-complete/> 
     </persistence-unit-metadata>
 
-    <package>br.com.webit.dddpoc.domain</package>
+    <package>br.dev.webit.dddpoc.domain</package>
     <access>FIELD</access>
 
     <embeddable class="ValorObjeto"/>

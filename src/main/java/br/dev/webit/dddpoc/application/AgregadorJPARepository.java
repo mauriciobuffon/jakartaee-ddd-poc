@@ -1,8 +1,8 @@
-package br.com.webit.dddpoc.application;
+package br.dev.webit.dddpoc.application;
 
-import br.com.webit.dddpoc.domain.Agregador;
-import br.com.webit.dddpoc.domain.AgregadorId;
-import br.com.webit.dddpoc.domain.AgregadorRepository;
+import br.dev.webit.dddpoc.domain.Agregador;
+import br.dev.webit.dddpoc.domain.AgregadorId;
+import br.dev.webit.dddpoc.domain.AgregadorRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

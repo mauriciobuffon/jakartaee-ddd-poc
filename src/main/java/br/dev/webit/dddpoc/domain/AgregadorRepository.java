@@ -1,6 +1,6 @@
-package br.com.webit.dddpoc.domain;
+package br.dev.webit.dddpoc.domain;
 
-import br.com.webit.dddpoc.infra.Repository;
+import br.dev.webit.dddpoc.infra.Repository;
 import jakarta.persistence.NamedQuery;
 
 @NamedQuery(name = AgregadorRepository.FIND_ALL, query = "SELECT a FROM Agregador a ORDER BY a.agregadorId.id ASC")

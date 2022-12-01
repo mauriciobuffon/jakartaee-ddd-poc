@@ -1,4 +1,4 @@
-package br.com.webit.dddpoc.domain;
+package br.dev.webit.dddpoc.domain;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.EmbeddedId;
@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-public class Agregador implements br.com.webit.dddpoc.infra.Entity<Agregador, AgregadorId> {
+public class Agregador implements br.dev.webit.dddpoc.infra.Entity<Agregador, AgregadorId> {
 
     @EmbeddedId
     private AgregadorId agregadorId;

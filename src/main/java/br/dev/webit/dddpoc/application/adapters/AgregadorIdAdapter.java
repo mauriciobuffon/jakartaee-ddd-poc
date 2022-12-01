@@ -1,6 +1,6 @@
-package br.com.webit.dddpoc.application.adapters;
+package br.dev.webit.dddpoc.application.adapters;
 
-import br.com.webit.dddpoc.domain.AgregadorId;
+import br.dev.webit.dddpoc.domain.AgregadorId;
 import jakarta.json.Json;
 import jakarta.json.JsonNumber;
 import jakarta.json.bind.adapter.JsonbAdapter;

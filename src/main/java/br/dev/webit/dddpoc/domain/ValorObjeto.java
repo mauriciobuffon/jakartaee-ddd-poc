@@ -1,10 +1,10 @@
-package br.com.webit.dddpoc.domain;
+package br.dev.webit.dddpoc.domain;
 
 import jakarta.persistence.Embeddable;
 import java.util.Objects;
 
 @Embeddable
-public class ValorObjeto implements br.com.webit.dddpoc.infra.ValueObject<ValorObjeto> {
+public class ValorObjeto implements br.dev.webit.dddpoc.infra.ValueObject<ValorObjeto> {
 
     private String dado;
 

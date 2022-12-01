@@ -1,9 +1,9 @@
-package br.com.webit.dddpoc.domain;
+package br.dev.webit.dddpoc.domain;
 
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class AgregadorId implements br.com.webit.dddpoc.infra.ValueObject<AgregadorId> {
+public class AgregadorId implements br.dev.webit.dddpoc.infra.ValueObject<AgregadorId> {
 
     private long id;
 
