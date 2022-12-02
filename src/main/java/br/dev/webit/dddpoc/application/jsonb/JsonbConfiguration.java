@@ -1,7 +1,5 @@
-package br.dev.webit.dddpoc.application;
+package br.dev.webit.dddpoc.application.jsonb;
 
-import br.dev.webit.dddpoc.application.adapters.AgregadorIdAdapter;
-import br.dev.webit.dddpoc.application.adapters.EntidadeIdAdapter;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;

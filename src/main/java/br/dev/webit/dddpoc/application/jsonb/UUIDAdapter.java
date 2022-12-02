@@ -1,4 +1,4 @@
-package br.dev.webit.dddpoc.application.adapters;
+package br.dev.webit.dddpoc.application.jsonb;
 
 import jakarta.json.Json;
 import jakarta.json.JsonString;

@@ -1,4 +1,4 @@
-package br.dev.webit.dddpoc.application.adapters;
+package br.dev.webit.dddpoc.application.jsonb;
 
 import br.dev.webit.dddpoc.domain.EntidadeId;
 import jakarta.json.bind.adapter.JsonbAdapter;

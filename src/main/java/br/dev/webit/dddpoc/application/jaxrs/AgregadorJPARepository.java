@@ -1,4 +1,4 @@
-package br.dev.webit.dddpoc.application;
+package br.dev.webit.dddpoc.application.jaxrs;
 
 import br.dev.webit.dddpoc.domain.Agregador;
 import br.dev.webit.dddpoc.domain.AgregadorId;

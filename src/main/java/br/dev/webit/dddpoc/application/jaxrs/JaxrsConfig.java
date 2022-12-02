@@ -1,4 +1,4 @@
-package br.dev.webit.dddpoc.application;
+package br.dev.webit.dddpoc.application.jaxrs;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
