@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import java.util.Objects;
+import java.util.UUID;
 
 @Embeddable
 public class EntidadeId implements br.dev.webit.dddpoc.infra.ValueObject<EntidadeId> {
@@ -12,12 +13,12 @@ public class EntidadeId implements br.dev.webit.dddpoc.infra.ValueObject<Entidad
     @Embedded
     @AttributeOverride(name = "id", column = @Column(name = "agregador_id"))
     private AgregadorId agregadorId;
-    private long id;
+    private UUID id;
 
     protected EntidadeId() {
     }
 
-    EntidadeId(AgregadorId agregadorId, long id) {
+    EntidadeId(AgregadorId agregadorId, UUID id) {
         this();
         this.agregadorId = agregadorId;
         this.id = id;
@@ -37,7 +38,7 @@ public class EntidadeId implements br.dev.webit.dddpoc.infra.ValueObject<Entidad
     public int hashCode() {
         int hash = 7;
         hash = 61 * hash + Objects.hashCode(this.agregadorId);
-        hash = 61 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 61 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -57,6 +58,6 @@ public class EntidadeId implements br.dev.webit.dddpoc.infra.ValueObject<Entidad
 
     @Override
     public String toString() {
-        return Long.toString(id);
+        return id.toString();
     }
 }

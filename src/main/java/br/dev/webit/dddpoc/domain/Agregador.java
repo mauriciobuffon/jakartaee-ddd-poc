@@ -39,7 +39,7 @@ public class Agregador implements br.dev.webit.dddpoc.infra.Entity<Agregador, Ag
     }
 
     public Entidade addEntidade(ValorObjeto objeto) {
-        Entidade entidade = new Entidade(Math.abs(UUID.randomUUID().getMostSignificantBits()), this, objeto);
+        Entidade entidade = new Entidade(UUID.randomUUID(), this, objeto);
         if (!this.entidades.add(entidade)) {
             throw new IllegalStateException();
         }

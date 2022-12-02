@@ -8,6 +8,7 @@ import jakarta.persistence.MapsId;
 import jakarta.persistence.Version;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 public class Entidade implements br.dev.webit.dddpoc.infra.Entity<Entidade, EntidadeId> {
@@ -25,7 +26,7 @@ public class Entidade implements br.dev.webit.dddpoc.infra.Entity<Entidade, Enti
     protected Entidade() {
     }
 
-    Entidade(long id, Agregador agregador, ValorObjeto objeto) {
+    Entidade(UUID id, Agregador agregador, ValorObjeto objeto) {
         this();
         this.entidadeId = new EntidadeId(agregador.getId(), id);
         this.agregador = agregador;
