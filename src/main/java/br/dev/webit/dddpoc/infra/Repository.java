@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 
 public interface Repository<T extends Entity<T, U>, U> {
 
+    @Deprecated
     U nextIdentity();
 
     Optional<T> find(U id);

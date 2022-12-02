@@ -17,8 +17,11 @@
     </embeddable>
 
     <entity class="Agregador">
+        <id-class class="br.dev.webit.dddpoc.domain.AgregadorId" />
         <attributes>
-            <embedded-id name="agregadorId"/>
+            <id name="id">
+                <generated-value strategy="UUID" />
+            </id>
             <one-to-many name="entidades" mapped-by="agregador" orphan-removal="true" fetch="EAGER">
                 <cascade>
                     <cascade-persist/>
@@ -62,7 +65,7 @@
     </entity>
 
     <named-query name="Agregador.findAll">
-        <query><![CDATA[SELECT a FROM Agregador a ORDER BY a.agregadorId.id ASC]]></query>
+        <query><![CDATA[SELECT a FROM Agregador a ORDER BY a.id ASC]]></query>
     </named-query>
 
 </entity-mappings>

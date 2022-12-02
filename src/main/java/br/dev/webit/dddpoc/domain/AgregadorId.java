@@ -1,29 +1,31 @@
 package br.dev.webit.dddpoc.domain;
 
 import jakarta.persistence.Embeddable;
+import java.util.Objects;
+import java.util.UUID;
 
 @Embeddable
 public class AgregadorId implements br.dev.webit.dddpoc.infra.ValueObject<AgregadorId> {
 
-    private long id;
+    private UUID id;
 
     protected AgregadorId() {
     }
 
-    public AgregadorId(long id) {
+    public AgregadorId(UUID id) {
         this();
         this.id = id;
     }
 
     @Override
     public boolean sameValueAs(AgregadorId other) {
-        return this.id == other.id;
+        return Objects.equals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 71 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -43,6 +45,6 @@ public class AgregadorId implements br.dev.webit.dddpoc.infra.ValueObject<Agrega
 
     @Override
     public String toString() {
-        return Long.toString(id);
+        return id.toString();
     }
 }

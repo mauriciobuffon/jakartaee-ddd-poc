@@ -1,9 +1,14 @@
 package br.dev.webit.dddpoc.domain;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Version;
 import java.time.LocalDateTime;
@@ -13,23 +18,22 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+@IdClass(AgregadorId.class)
 public class Agregador implements br.dev.webit.dddpoc.infra.Entity<Agregador, AgregadorId> {
 
-    @EmbeddedId
-    private AgregadorId agregadorId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
     @OneToMany(mappedBy = "agregador", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Entidade> entidades;
     @ElementCollection(fetch = FetchType.EAGER)
+    @AttributeOverride(name = "dado", column = @Column(nullable = false))
     private Set<ValorObjeto> objetos;
     @Version
     private LocalDateTime version;
 
-    protected Agregador() {
-    }
-
-    public Agregador(AgregadorId id) {
-        this();
-        this.agregadorId = id;
+    public Agregador() {
         this.entidades = new HashSet<>();
         this.objetos = new HashSet<>();
     }
@@ -50,7 +54,7 @@ public class Agregador implements br.dev.webit.dddpoc.infra.Entity<Agregador, Ag
 
     @Override
     public AgregadorId getId() {
-        return agregadorId;
+        return new AgregadorId(id);
     }
 
     public Set<Entidade> getEntidades() {
@@ -63,13 +67,13 @@ public class Agregador implements br.dev.webit.dddpoc.infra.Entity<Agregador, Ag
 
     @Override
     public boolean sameIdentityAs(Agregador other) {
-        return Objects.equals(this.agregadorId, other.agregadorId);
+        return Objects.equals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.agregadorId);
+        hash = 89 * hash + Objects.hashCode(this.id);
         return hash;
     }
 

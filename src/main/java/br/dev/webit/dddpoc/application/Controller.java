@@ -4,8 +4,9 @@ import br.dev.webit.dddpoc.domain.Agregador;
 import br.dev.webit.dddpoc.domain.AgregadorId;
 import br.dev.webit.dddpoc.domain.AgregadorRepository;
 import br.dev.webit.dddpoc.domain.ValorObjeto;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
@@ -16,10 +17,12 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import java.util.Collection;
+import java.util.UUID;
 
 @Path("agregadores")
 @Produces("application/json")
-@Stateless
+@RequestScoped
+@Transactional
 public class Controller {
 
     @Inject
@@ -32,34 +35,33 @@ public class Controller {
 
     @POST
     public void post() {
-        AgregadorId id = repository.nextIdentity();
-        Agregador agregador = new Agregador(id);
+        Agregador agregador = new Agregador();
         repository.put(agregador);
     }
 
-    @Path("{id : \\d+}")
+    @Path("{id : \\p{XDigit}{8}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{12}}")
     @GET
-    public Agregador get(@PathParam("id") long id) {
+    public Agregador get(@PathParam("id") UUID id) {
         return repository.find(new AgregadorId(id)).orElseThrow(NotFoundException::new);
     }
 
-    @Path("{id : \\d+}")
+    @Path("{id : \\p{XDigit}{8}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{12}}")
     @DELETE
-    public void delete(@PathParam("id") long id) {
+    public void delete(@PathParam("id") UUID id) {
         repository.remove(repository.find(new AgregadorId(id)).orElseThrow(NotFoundException::new));
     }
 
-    @Path("{id : \\d+}/entidades")
+    @Path("{id : \\p{XDigit}{8}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{12}}/entidades")
     @POST
-    public void postEntidade(@PathParam("id") long id, String dado) {
+    public void postEntidade(@PathParam("id") UUID id, String dado) {
         Agregador agregador = repository.find(new AgregadorId(id)).orElseThrow(NotFoundException::new);
         agregador.addEntidade(new ValorObjeto(dado));
         repository.put(agregador);
     }
 
-    @Path("{id : \\d+}/objetos")
+    @Path("{id : \\p{XDigit}{8}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{12}}/objetos")
     @POST
-    public void postObjeto(@PathParam("id") long id, String dado) {
+    public void postObjeto(@PathParam("id") UUID id, String dado) {
         Agregador agregador = repository.find(new AgregadorId(id)).orElseThrow(NotFoundException::new);
         agregador.addObjeto(new ValorObjeto(dado));
     }

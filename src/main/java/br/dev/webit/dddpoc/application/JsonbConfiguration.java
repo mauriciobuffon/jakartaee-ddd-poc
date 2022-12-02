@@ -16,6 +16,7 @@ public class JsonbConfiguration implements ContextResolver<Jsonb> {
 
     public JsonbConfiguration() {
         JsonbConfig config = new JsonbConfig()
+                // .withAdapters(new UUIDAdapter())
                 .withAdapters(new AgregadorIdAdapter())
                 .withAdapters(new EntidadeIdAdapter())
                 .withBinaryDataStrategy(BinaryDataStrategy.BASE_64_URL);

@@ -8,7 +8,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.function.Predicate;
 
 @ApplicationScoped
@@ -24,7 +23,7 @@ public class AgregadorJPARepository implements AgregadorRepository {
 
     @Override
     public AgregadorId nextIdentity() {
-        return new AgregadorId(Math.abs(UUID.randomUUID().getMostSignificantBits()));
+        throw new UnsupportedOperationException();
     }
 
     @Override
