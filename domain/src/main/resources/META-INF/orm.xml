@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_1.xsd" version="3.1">
+
+    <access>FIELD</access>
+
+    <embeddable class="br.dev.webit.domain.ValorObjeto" />
+
+    <embeddable class="br.dev.webit.domain.AgregadorId">
+        <attributes>
+            <basic name="id" optional="false" />
+        </attributes>
+    </embeddable>
+
+    <entity class="br.dev.webit.domain.Agregador">
+        <id-class class="br.dev.webit.domain.AgregadorId" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="UUID" />
+            </id>
+            <one-to-many name="entidades" mapped-by="agregador" orphan-removal="true" fetch="EAGER">
+                <cascade>
+                    <cascade-persist />
+                </cascade>
+            </one-to-many>
+            <element-collection name="objetos" fetch="EAGER">
+                <attribute-override name="dado">
+                    <column nullable="false" />
+                </attribute-override>
+            </element-collection>
+            <version name="version">
+                <column nullable="false" />
+            </version>
+        </attributes>
+    </entity>
+
+    <embeddable class="br.dev.webit.domain.EntidadeId">
+        <attributes>
+            <embedded name="agregadorId">
+                <attribute-override name="id">
+                    <column name="agregador_id" />
+                </attribute-override>
+            </embedded>
+            <basic name="id" optional="false" />
+        </attributes>
+    </embeddable>
+
+    <entity class="br.dev.webit.domain.Entidade">
+        <attributes>
+            <embedded-id name="entidadeId" />
+            <many-to-one name="agregador" maps-id="agregadorId" />
+            <embedded name="objeto">
+                <attribute-override name="dado">
+                    <column nullable="false" />
+                </attribute-override>
+            </embedded>
+            <version name="version">
+                <column nullable="false" />
+            </version>
+        </attributes>
+    </entity>
+
+    <named-query name="Agregador.findAll">
+        <query><![CDATA[SELECT a FROM Agregador a ORDER BY a.id ASC]]></query>
+    </named-query>
+
+</entity-mappings>

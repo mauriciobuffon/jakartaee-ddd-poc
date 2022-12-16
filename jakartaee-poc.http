@@ -1,0 +1,21 @@
+GET http://localhost:8080/jakartaee-poc/ws/agregadores/
+###
+
+GET http://localhost:8080/jakartaee-poc/ws/agregadores/{id}
+###
+
+POST http://localhost:8080/jakartaee-poc/ws/agregadores/
+###
+
+POST http://localhost:8080/jakartaee-poc/ws/agregadores/{id}/entidades/
+
+entidade
+###
+
+POST http://localhost:8080/jakartaee-poc/ws/agregadores/{id}/objetos/
+
+objeto
+###
+
+DELETE http://localhost:8080/jakartaee-poc/ws/agregadores/{id}
+###
