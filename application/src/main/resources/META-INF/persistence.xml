@@ -3,9 +3,9 @@
 
     <persistence-unit name="br.dev.webit.jakartaee-poc" transaction-type="JTA">
         <jta-data-source>java:app/jdbc/jakartaee-poc</jta-data-source>
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <jar-file>lib/domain-1.0.0.jar</jar-file>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
             <!-- <property name="jakarta.persistence.schema-generation.database.action" value="none" /> -->
