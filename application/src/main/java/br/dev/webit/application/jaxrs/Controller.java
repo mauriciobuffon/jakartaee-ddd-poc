@@ -1,5 +1,8 @@
 package br.dev.webit.application.jaxrs;
 
+import java.util.Collection;
+import java.util.UUID;
+
 import br.dev.webit.domain.Agregador;
 import br.dev.webit.domain.AgregadorId;
 import br.dev.webit.domain.AgregadorRepository;
@@ -16,8 +19,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
-import java.util.Collection;
-import java.util.UUID;
 
 @Path("agregadores")
 @Produces("application/json")
@@ -29,7 +30,9 @@ public class Controller {
     private AgregadorRepository repository;
 
     @GET
-    public Collection<Agregador> getAll(@QueryParam("offset") @DefaultValue("0") int offset, @QueryParam("limit") @DefaultValue("50") int limit) {
+    public Collection<Agregador> getAll(
+            @QueryParam("offset") @DefaultValue("0") int offset,
+            @QueryParam("limit") @DefaultValue("50") int limit) {
         return repository.findAll(offset, limit);
     }
 

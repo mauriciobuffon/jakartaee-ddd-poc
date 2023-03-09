@@ -1,8 +1,9 @@
 package br.dev.webit.domain;
 
-import jakarta.persistence.Embeddable;
 import java.util.Objects;
 import java.util.UUID;
+
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class AgregadorId implements br.dev.webit.infra.ddd.ValueObject<AgregadorId> {
@@ -14,7 +15,7 @@ public class AgregadorId implements br.dev.webit.infra.ddd.ValueObject<Agregador
 
     public AgregadorId(UUID id) {
         this();
-        this.id = id;
+        this.id = Objects.requireNonNull(id);
     }
 
     @Override

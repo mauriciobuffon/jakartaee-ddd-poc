@@ -1,11 +1,11 @@
 package br.dev.webit.domain;
 
+import java.util.Objects;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
-import java.util.Objects;
-import java.util.UUID;
 
 @Embeddable
 public class EntidadeId implements br.dev.webit.infra.ddd.ValueObject<EntidadeId> {
@@ -13,14 +13,14 @@ public class EntidadeId implements br.dev.webit.infra.ddd.ValueObject<EntidadeId
     @Embedded
     @AttributeOverride(name = "id", column = @Column(name = "agregador_id"))
     private AgregadorId agregadorId;
-    private UUID id;
+    private long id;
 
     protected EntidadeId() {
     }
 
-    EntidadeId(AgregadorId agregadorId, UUID id) {
+    EntidadeId(AgregadorId agregadorId, long id) {
         this();
-        this.agregadorId = agregadorId;
+        this.agregadorId = Objects.requireNonNull(agregadorId);
         this.id = id;
     }
 
@@ -28,17 +28,15 @@ public class EntidadeId implements br.dev.webit.infra.ddd.ValueObject<EntidadeId
     public boolean sameValueAs(EntidadeId other) {
         if (this.id != other.id) {
             return false;
-        } else if (!Objects.equals(this.agregadorId, other.agregadorId)) {
-            return false;
         }
-        return true;
+        return Objects.equals(this.agregadorId, other.agregadorId);
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 61 * hash + Objects.hashCode(this.agregadorId);
-        hash = 61 * hash + Objects.hashCode(this.id);
+        hash = 61 * hash + (int) (this.id ^ (this.id >>> 32));
         return hash;
     }
 
@@ -58,6 +56,6 @@ public class EntidadeId implements br.dev.webit.infra.ddd.ValueObject<EntidadeId
 
     @Override
     public String toString() {
-        return id.toString();
+        return Long.toString(id);
     }
 }

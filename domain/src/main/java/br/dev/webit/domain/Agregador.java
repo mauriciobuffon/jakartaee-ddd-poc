@@ -1,5 +1,11 @@
 package br.dev.webit.domain;
 
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -11,11 +17,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Version;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @IdClass(AgregadorId.class)
@@ -38,8 +39,13 @@ public class Agregador implements br.dev.webit.infra.ddd.Entity<Agregador, Agreg
         this.objetos = new HashSet<>();
     }
 
+    Agregador(UUID id) {
+        this();
+        this.id = id;
+    }
+
     public Entidade addEntidade(ValorObjeto objeto) {
-        Entidade entidade = new Entidade(UUID.randomUUID(), this, objeto);
+        Entidade entidade = new Entidade(UUID.randomUUID().getLeastSignificantBits() & 0x7fff_ffff_ffff_ffffL, this, objeto);
         if (!this.entidades.add(entidade)) {
             throw new IllegalStateException();
         }

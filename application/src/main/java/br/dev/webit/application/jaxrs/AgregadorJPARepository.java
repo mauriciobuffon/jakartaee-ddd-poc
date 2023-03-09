@@ -1,14 +1,15 @@
 package br.dev.webit.application.jaxrs;
 
+import java.util.Collection;
+import java.util.Optional;
+import java.util.function.Predicate;
+
 import br.dev.webit.domain.Agregador;
 import br.dev.webit.domain.AgregadorId;
 import br.dev.webit.domain.AgregadorRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.function.Predicate;
 
 @ApplicationScoped
 public class AgregadorJPARepository implements AgregadorRepository {

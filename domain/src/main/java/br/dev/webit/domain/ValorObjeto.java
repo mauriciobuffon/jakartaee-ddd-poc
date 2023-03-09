@@ -1,7 +1,8 @@
 package br.dev.webit.domain;
 
-import jakarta.persistence.Embeddable;
 import java.util.Objects;
+
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class ValorObjeto implements br.dev.webit.infra.ddd.ValueObject<ValorObjeto> {
@@ -13,6 +14,10 @@ public class ValorObjeto implements br.dev.webit.infra.ddd.ValueObject<ValorObje
 
     public ValorObjeto(String dado) {
         this();
+        dado = Objects.requireNonNull(dado).replaceAll("\\s+", " ").strip();
+        if (dado.isBlank()) {
+            throw new IllegalArgumentException();
+        }
         this.dado = dado;
     }
 

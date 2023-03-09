@@ -1,8 +1,9 @@
 package br.dev.webit.application.jsonb;
 
+import java.util.UUID;
+
 import br.dev.webit.domain.AgregadorId;
 import jakarta.json.bind.adapter.JsonbAdapter;
-import java.util.UUID;
 
 public class AgregadorIdAdapter implements JsonbAdapter<AgregadorId, UUID> {
 

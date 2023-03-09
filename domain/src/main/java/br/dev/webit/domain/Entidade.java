@@ -1,14 +1,14 @@
 package br.dev.webit.domain;
 
+import java.time.LocalDateTime;
+import java.util.Objects;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Version;
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 public class Entidade implements br.dev.webit.infra.ddd.Entity<Entidade, EntidadeId> {
@@ -26,11 +26,11 @@ public class Entidade implements br.dev.webit.infra.ddd.Entity<Entidade, Entidad
     protected Entidade() {
     }
 
-    Entidade(UUID id, Agregador agregador, ValorObjeto objeto) {
+    Entidade(long id, Agregador agregador, ValorObjeto objeto) {
         this();
+        this.agregador = Objects.requireNonNull(agregador);
+        this.objeto = Objects.requireNonNull(objeto);
         this.entidadeId = new EntidadeId(agregador.getId(), id);
-        this.agregador = agregador;
-        this.objeto = objeto;
     }
 
     @Override
