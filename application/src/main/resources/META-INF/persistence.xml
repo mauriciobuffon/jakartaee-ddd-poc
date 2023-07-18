@@ -21,6 +21,8 @@
             <!-- <property name="jakarta.persistence.schema-generation.scripts.action" value="drop-and-create" /> -->
             <!-- <property name="jakarta.persistence.schema-generation.scripts.create-target" value="file:/tmp/create-target.sql" /> -->
             <!-- <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="file:/tmp/drop-target.sql" /> -->
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
         </properties>
     </persistence-unit>
 
