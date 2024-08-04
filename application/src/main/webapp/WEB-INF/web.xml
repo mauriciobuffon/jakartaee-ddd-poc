@@ -6,7 +6,7 @@
         <class-name>org.apache.derby.client.BasicClientDataSource</class-name>
         <server-name>localhost</server-name>
         <port-number>1527</port-number>
-        <database-name>${project.build.finalName}</database-name>
+        <database-name>jakartaee-poc</database-name>
         <user>APP</user>
         <password><![CDATA[secret]]></password>
     </data-source>
