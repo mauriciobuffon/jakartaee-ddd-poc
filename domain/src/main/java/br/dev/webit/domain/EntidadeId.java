@@ -8,50 +8,17 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 
 @Embeddable
-public class EntidadeId implements br.dev.webit.infra.ddd.ValueObject<EntidadeId> {
+public record EntidadeId(
+        @Embedded @AttributeOverride(name = "id", column = @Column(name = "agregador_id")) AgregadorId agregadorId,
+        long id) implements br.dev.webit.infra.ddd.ValueObject<EntidadeId> {
 
-    @Embedded
-    @AttributeOverride(name = "id", column = @Column(name = "agregador_id"))
-    private AgregadorId agregadorId;
-    private long id;
-
-    protected EntidadeId() {
-    }
-
-    EntidadeId(AgregadorId agregadorId, long id) {
-        this();
-        this.agregadorId = Objects.requireNonNull(agregadorId);
-        this.id = id;
+    public EntidadeId {
+        Objects.requireNonNull(agregadorId);
     }
 
     @Override
     public boolean sameValueAs(EntidadeId other) {
-        if (this.id != other.id) {
-            return false;
-        }
-        return Objects.equals(this.agregadorId, other.agregadorId);
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.agregadorId);
-        hash = 61 * hash + (int) (this.id ^ (this.id >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        return sameValueAs((EntidadeId) obj);
+        return this.equals(other);
     }
 
     @Override
